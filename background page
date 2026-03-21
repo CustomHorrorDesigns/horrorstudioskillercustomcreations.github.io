@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Horror Studios Killer Custom Creations</title>
+    <style>
+        body {
+            background-color: #0b0b0b;
+            color: #f23a3a;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border-bottom: 2px solid #f23a3a;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #f23a3a;
+            text-shadow: 2px 2px #000;
+        }
+        p {
+            font-size: 1.2rem;
+            margin: 1rem auto;
+            max-width: 600px;
+        }
+        section {
+            padding: 2rem;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .product {
+            background-color: #1a1a1a;
+            border: 1px solid #f23a3a;
+            padding: 1rem;
+            width: 200px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        a {
+            color: #f23a3a;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 2rem;
+            padding: 1rem;
+            border-top: 2px solid #f23a3a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Horror Studios Killer Custom Creations</h1>
+        <p>From the iconic scares of the 80’s to the latest chills of modern horror, our handmade collectibles bring nightmares to life!</p>
+    </header>
+
+    <section>
+        <h2>Featured Products</h2>
+        <div class="product-list">
+            <div class="product">
+                <h3>Retro Slasher Figurine</h3>
+                <p>Handmade collectible inspired by classic 80’s horror.</p>
+            </div>
+            <div class="product">
+                <h3>Modern Horror Décor</h3>
+                <p>Bring today’s creepiest films into your home.</p>
+            </div>
+            <div class="product">
+                <h3>Limited Edition Collectibles</h3>
+                <p>One-of-a-kind items for true horror fans.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Contact & Orders</h2>
+        <p>Email us at <a href="mailto:howiescustomhorrordesigns@yahoo.com">howiescustomhorrordesigns@yahoo.com</a></p>
+        <p>Follow us on Facebook: <a href="https://www.facebook.com/KillerHorrorStudiosCustomCreations">@CustomHorrorDesignsbyHowie</a></p>
+    </section>
+
+    <footer>
+        &copy; 2026 Horror Studios Killer Creations
+    </footer>
+</body>
+</html>
