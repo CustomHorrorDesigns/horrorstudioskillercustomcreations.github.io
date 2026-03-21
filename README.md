@@ -8,9 +8,12 @@ We love all things retro, gory, and nostalgic, making sure every item is as KILL
 
 Products
 
-Custom Horror Movie inspired decor
+Custom Horror Movie Inspired Decor
+
 Unique Collectables for Fans and Collectors
+
 Custom Clothing
+
 ...and More
 
 How to Order:
