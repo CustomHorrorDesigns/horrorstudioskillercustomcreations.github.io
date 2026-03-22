@@ -3,6 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Horror Studios Killer Custom Creations</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fog overlay -->
+  <div class="fog"></div>
+
+  <!-- Header with logo and dripping blood -->
+  <header class="logo-header">
+    <img src="assets/logo.png" alt="Horror Logo" class="logo" id="logo">
+    <div class="blood-pool">
+      <div class="drip drip1"></div>
+      <div class="drip drip2"></div>
+      <div class="drip drip3"></div>
+      <div class="drip drip4"></div>
+      <div class="drip drip5"></div>
+    </div>
+  </header>
+
+  <!-- Demon laugh audio -->
+  <audio id="demonLaugh" src="assets/demon-laugh.mp3"></audio>
+
 
 <!-- Metal Mania Font -->
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
@@ -29,26 +51,6 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     animation: dripMove 3s infinite ease-in-out;
-}
-
-/* Fog Overlay */
-.fog-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.4;
-}
-
-/* Content above fog */
-.content {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
 }
 
 /* Header */
@@ -259,18 +261,6 @@ h1 {
 </head>
 <body>
 
-<audio id="demon laugh" src="images/demon laugh.mp3" preload="auto"></audio>
-
-<script>
-document.getElementById('demon').addEventListener('click', function() {
-  const sound = document.getElementById('demon laugh');sound.currentTime=0;
-    sound.play();
-});
-    
-</script>
-<!-- Fog Overlay -->
-<img src="images/fog.png" class="fog-overlay">
-
 <!-- Demon Head -->
 <img id="demon"src="images/demon.png">
 
@@ -364,6 +354,20 @@ figurines, each piece is made with care and attention to detail.
         </div>
     </div>
 
+      <!-- Script for click-to-play laugh -->
+  <script>
+    const logo = document.getElementById('logo');
+    const laugh = document.getElementById('demonLaugh');
+
+    logo.addEventListener('click', () => {
+      laugh.currentTime = 0; // restart if already playing
+      laugh.play();
+    });
+  </script>
+
+</body>
+</html>
+
     <!-- Contact Info -->
     <div class="contact">
         <p>
@@ -374,6 +378,88 @@ figurines, each piece is made with care and attention to detail.
     </div>
 
 </div>
+
+/* BODY RESET */
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  font-family: sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* FOG OVERLAY */
+.fog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/fog.png') repeat;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* HEADER WITH LOGO */
+.logo-header {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  margin-top: 50px;
+}
+
+/* LOGO */
+.logo {
+  display: block;
+  max-width: 80%;
+  height: auto;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  cursor: pointer; /* indicates it can be clicked */
+}
+
+/* BLOOD POOL */
+.blood-pool {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #4B0000;
+  border-radius: 0 0 50% 50%;
+  overflow: visible;
+  z-index: 2;
+}
+
+/* JAGGED BLOOD DRIPS */
+.drip {
+  position: absolute;
+  bottom: 100%;
+  width: 10px;
+  height: 50px;
+  background: #8B0000;
+  clip-path: polygon(
+    50% 0%, 60% 20%, 40% 40%, 55% 60%, 45% 80%, 50% 100%, 40% 90%, 60% 70%, 50% 50%, 55% 30%
+  );
+  animation: drip-fall 2s infinite ease-in-out;
+}
+
+.drip1 { left: 10%; animation-delay: 0s; }
+.drip2 { left: 25%; animation-delay: 0.4s; }
+.drip3 { left: 45%; animation-delay: 0.8s; }
+.drip4 { left: 65%; animation-delay: 1.2s; }
+.drip5 { left: 85%; animation-delay: 1.6s; }
+
+@keyframes drip-fall {
+  0%, 20% { transform: scaleY(0); }
+  50% { transform: scaleY(1.3); }
+  80%, 100% { transform: scaleY(1); }
+}
 
 <!-- Lightbox -->
 <div id="lightbox">
