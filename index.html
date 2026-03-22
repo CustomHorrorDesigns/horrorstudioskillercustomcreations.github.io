@@ -17,34 +17,6 @@ body {
     font-family: 'Arial', sans-serif;
     overflow-x: hidden;
 }
-
-    /* Full width banner */
-.top-banner {
-    position: relative;
-    width: 100%;
-    text-align: center;
-    background: black;
-    overflow: hidden;
-}
-
-/* Logo stretched across */
-.banner-logo {
-    width: 100%;
-    max-height: 250px;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-}
-
-/* BLOOD DRIPPING */
-.top-banner::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-
     background: 
         radial-gradient(circle at 10% 0, #8b0000 20px, transparent 21px),
         radial-gradient(circle at 25% 0, #8b0000 25px, transparent 26px),
@@ -100,17 +72,6 @@ h1 {
     position: relative;
     box-shadow: 0 0 20px rgba(139, 0, 0, 0.7);
     overflow: hidden;
-}
-
-/* Blood drip effect */
-.horror-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 15px;
-    background: linear-gradient(to bottom, #8b0000, transparent);
 }
 
 /* Title */
@@ -248,19 +209,6 @@ h1 {
     100% { filter:none; }
 }
 
-    .logo {
-    max-width: 300px;
-    width: 80%;
-    height: auto;
-    filter: drop-shadow(0 0 10px red);
-    transition: 0.3s;
-}
-
-/* Hover glow effect */
-.logo:hover {
-    filter: drop-shadow(0 0 20px red) drop-shadow(0 0 40px darkred);
-    transform: scale(1.05);
-}
 
 <div class="logo-container">
     <div class="blood-logo">
@@ -271,74 +219,6 @@ h1 {
 .logo-container {
     text-align: center;
     margin-top: 20px;
-}
-
-/* Logo */
-.logo {
-    max-width: 300px;
-    width: 80%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    filter: drop-shadow(0 0 10px red);
-}
-
-/* Header and logo */
-.logo-header {
-  position: relative;
-  display: inline-block;
-  margin: 50px auto;
-}
-
-.logo {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-/* Blood pool under logo */
-.blood-pool {
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background: #4B0000;
-  border-radius: 0 0 50% 50%;
-  overflow: visible;
-}
-
-/* Drips */
-.drip {
-  position: absolute;
-  bottom: 100%; /* start at top of pool */
-  width: 10px;
-  height: 50px;
-  background: #8B0000;
-  clip-path: polygon(
-    50% 0%, 60% 20%, 40% 40%, 55% 60%, 45% 80%, 50% 100%, 40% 90%, 60% 70%, 50% 50%, 55% 30%
-  ); /* jagged, irregular drip shape */
-  animation: drip-fall 2s infinite ease-in-out;
-}
-
-/* Different horizontal positions and delays */
-.drip1 { left: 10%; animation-delay: 0s; }
-.drip2 { left: 25%; animation-delay: 0.4s; }
-.drip3 { left: 45%; animation-delay: 0.8s; }
-.drip4 { left: 65%; animation-delay: 1.2s; }
-.drip5 { left: 85%; animation-delay: 1.6s; }
-
-/* Drip animation */
-@keyframes drip-fall {
-  0%, 20% { transform: scaleY(0); }
-  50% { transform: scaleY(1.3); }
-  80%, 100% { transform: scaleY(1); }
-}
-
-}
-
-.logo {
-    animation: flicker 3s infinite;
 }
 
 @keyframes flicker {
