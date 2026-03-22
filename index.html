@@ -74,13 +74,66 @@
  <header class="logo-header">
     <img src="assets/logo.png" id="logo"
      
-    <div class="blood-pool">
+    <div class="logo-wrapper">
       <div class="drip drip1"></div>
       <div class="drip drip2"></div>
       <div class="drip drip3"></div>
       <div class="drip drip4"></div>
       <div class="drip drip5"></div>
     </div>
+ </div>
+
+<style>
+/* WRAPPER */
+.logo-wrapper {
+  position: relative;
+  display: block;
+  width: fit-content;
+  margin: 0 auto; /* centers everything */
+}
+
+/* LOGO */
+#logo {
+  display: block;
+  height: 130px;
+  width: auto;
+}
+
+/* BLOOD POOL */
+.blood-pool {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 20px;
+  background: #4B0000;
+  border-radius: 0 0 50px 50px;
+}
+
+/* DRIPS */
+.drip {
+  position: absolute;
+  top: 0;
+  width: 6px;
+  height: 30px;
+  background: #8B0000;
+  border-radius: 50%;
+  animation: drip 2s infinite ease-in-out;
+}
+
+.drip1 { left: 10%; }
+.drip2 { left: 30%; }
+.drip3 { left: 50%; }
+.drip4 { left: 70%; }
+.drip5 { left: 90%; }
+
+@keyframes drip {
+  0% { height: 0; opacity: 0; }
+  50% { height: 30px; opacity: 1; }
+  100% { height: 15px; opacity: 0.8; }
+}
+</style>
+
   </header>
 
   <!-- Demon laugh audio -->
