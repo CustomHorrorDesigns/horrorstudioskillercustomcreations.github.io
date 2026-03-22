@@ -19,6 +19,19 @@ body {
   position: relative;
 }
 
+/* -------------------- FOG OVERLAY -------------------- */
+.fog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('assets/fog.png') repeat;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* -------------------- HEADER & LOGO -------------------- */
 .logo-header {
   position: relative;
@@ -74,29 +87,7 @@ body {
   80%, 100% { transform: scaleY(1); }
 }
 
-/* -------------------- FOG OVERLAY -------------------- */
-.fog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('assets/fog.png') repeat;
-  opacity: 0.3;
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* -------------------- BODY CONTENT -------------------- */
-.content {
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-}
-
-/* Headline */
+/* -------------------- HEADLINE -------------------- */
 h1 {
   font-family: 'Metal Mania', cursive;
   font-size: 3em;
@@ -112,7 +103,7 @@ h1 {
   color: #e74c3c;
 }
 
-/* Horror cards */
+/* -------------------- HORROR CARDS -------------------- */
 .horror-card {
   max-width: 800px;
   margin: 40px auto;
@@ -224,9 +215,13 @@ h1 {
   80% { filter: hue-rotate(-20deg); }
   100% { filter:none; }
 }
+
 </style>
 </head>
 <body>
+
+<!-- FOG -->
+<div class="fog"></div>
 
 <!-- HEADER -->
 <header class="logo-header">
@@ -240,14 +235,13 @@ h1 {
   </div>
 </header>
 
-<!-- Demon laugh audio -->
+<!-- Demon laugh -->
 <audio id="demonLaugh" src="assets/demon-laugh.mp3"></audio>
 
 <!-- Floating demon -->
 <img id="demon" src="images/demon.png" alt="Floating Demon">
 
-<!-- CONTENT -->
-<div class="fog"></div>
+<!-- MAIN CONTENT -->
 <div class="content">
 
   <h1>Horror Studios Killer Custom Creations</h1>
@@ -255,11 +249,14 @@ h1 {
 
   <div class="horror-card">
     <h2>About Us</h2>
-    <p>Welcome to Horror Studios Killer Custom Creations. Unique, handmade horror collectibles for fans and collectors. Our work brings retro fright to life with attention to detail and style.</p>
+    <p>
+      Welcome to Horror Studios Killer Custom Creations. Unique, handmade horror collectibles for fans and collectors. Our work brings retro fright to life with attention to detail and style.
+    </p>
   </div>
 
-  <!-- CAROUSEL -->
   <div class="carousel-container">
+  <div class="carousel-track">
+    <!-- 22 images -->
     <img src="images/Untitled%20design-2.png" onclick="openLightbox(this.src)">
     <img src="images/Untitled%20design-3.png" onclick="openLightbox(this.src)">
     <img src="images/Untitled%20design-4.png" onclick="openLightbox(this.src)">
@@ -279,16 +276,72 @@ h1 {
     <img src="images/Untitled%20design-18.png" onclick="openLightbox(this.src)">
     <img src="images/Untitled%20design-19.png" onclick="openLightbox(this.src)">
     <img src="images/Untitled%20design-20.png" onclick="openLightbox(this.src)">
-    <img src="images/Untitled%20design-21.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-22.png" onclick="openLightbox(this.src)">
+
+    <!-- Duplicate images for seamless loop -->
+    <img src="images/Untitled%20design-2.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-3.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-4.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-5.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-6.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-7.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-8.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-9.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-10.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-11.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-12.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-13.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-14.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-15.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-16.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-17.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-18.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-19.png" onclick="openLightbox(this.src)">
+    <img src="images/Untitled%20design-20.png" onclick="openLightbox(this.src)">
     <img src="images/Untitled%20design-22.png" onclick="openLightbox(this.src)">
   </div>
+</div>
 
-  <!-- Contact -->
+<style>
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 15px;
+  animation: scroll-carousel 40s linear infinite;
+}
+
+.carousel-track img {
+  width: 200px;
+  border: 2px solid #e74c3c;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #e74c3c, 0 0 40px #8B0000;
+}
+
+@keyframes scroll-carousel {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
+
+  <!-- CONTACT -->
   <div class="horror-card contact">
     <p>📧 Email: <a href="mailto:Howiescustomhorrordesigns@yahoo.com">Howiescustomhorrordesigns@yahoo.com</a><br>
        👍 Facebook: <a href="https://www.facebook.com/killerhorrorstudioscustomcreations" target="_blank">killerhorrorstudioscustomcreations</a>
     </p>
   </div>
+
 </div>
 
 <!-- LIGHTBOX -->
@@ -301,7 +354,7 @@ h1 {
 
 <!-- SCRIPTS -->
 <script>
-// DEMON LAUGH
+// LOGO CLICK DEMON LAUGH
 const logo = document.getElementById('logo');
 const laugh = document.getElementById('demonLaugh');
 logo.addEventListener('click', () => {
