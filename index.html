@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     background: #111;
-    color: #fff;
+    color: #e74c3c;
     font-family: 'Arial', sans-serif;
     overflow-x: hidden;
 }
@@ -125,7 +125,7 @@ h1 {
 .close, .prev, .next {
     position: absolute;
     font-size: 40px;
-    color: white;
+    color: red;
     cursor: pointer;
     user-select: none;
     top: 50%;
@@ -212,11 +212,11 @@ h1 {
 </head>
 <body>
 
-<audio id="demon-laugh" src="images/laugh.mp3" preload="auto"></audio>
+<audio id="demon-laugh.mp3" src="images/demon-laugh.mp3" preload="auto"></audio>
 
 <script>
 document.getElementById('demon').addEventListener('mouseenter', function() {
-  document.getElementById('demon-laugh').play();
+  document.getElementById('demon-laugh.mp3').play();
 });
     
 </script>
