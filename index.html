@@ -18,6 +18,47 @@ body {
     overflow-x: hidden;
 }
 
+    /* Full width banner */
+.top-banner {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    background: black;
+    overflow: hidden;
+}
+
+/* Logo stretched across */
+.banner-logo {
+    width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+/* BLOOD DRIPPING */
+.top-banner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+
+    background: 
+        radial-gradient(circle at 10% 0, #8b0000 20px, transparent 21px),
+        radial-gradient(circle at 25% 0, #8b0000 25px, transparent 26px),
+        radial-gradient(circle at 40% 0, #8b0000 18px, transparent 19px),
+        radial-gradient(circle at 55% 0, #8b0000 28px, transparent 29px),
+        radial-gradient(circle at 70% 0, #8b0000 22px, transparent 23px),
+        radial-gradient(circle at 85% 0, #8b0000 26px, transparent 27px),
+        linear-gradient(#8b0000, #8b0000);
+
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    animation: dripMove 3s infinite ease-in-out;
+}
+
 /* Fog Overlay */
 .fog-overlay {
     position: fixed;
@@ -362,9 +403,9 @@ document.getElementById('demon').addEventListener('click', function() {
 <div class="content">
 
     <!-- Header -->
-<div class="logo-container">
+<div class="top-banner">
     <div class="blood-logo">
-    <img src="images/logo.png" alt="Horror Studios Logo" class="logo">
+    <img src="images/logo.png"class="banner-logo">
     </div>
 </div>
     
