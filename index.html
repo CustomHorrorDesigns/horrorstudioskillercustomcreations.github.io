@@ -74,9 +74,9 @@
  <header class="logo-header">
   
    <div class="logo-wrapper">
-    <img src="assets/logo.png" id="logo">
+    <img src="assets/logo.png" id="logo" alt="horror logo">
      
-    <div class="blood-pool">
+    <div class="blood-pool"></div>
       <div class="drip drip1"></div>
       <div class="drip drip2"></div>
       <div class="drip drip3"></div>
@@ -95,57 +95,54 @@
 .logo-wrapper {
   position: relative;
   display: inline-block;
+ text-align:center;
+ margin:40px auto 0 auto;
 }
 
 /* LOGO */
 #logo {
   display: block;
-  height: 130px;
+  height: 200px;
   width: auto;
+  margin:0 auto;
   cursor: pointer;
+  z-index:5;
 }
 
 /* BLOOD POOL */
 .blood-pool {
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 18px;
+  bottom:0;
+  left: 50%;
+  transform:translateX(-50%);
+  width: 220%;
+  height: 20px;
   background: #4B0000;
-  border-radius: 0 0 40px 40px;
+  border-radius: 0 0 50% 50%;
+  z-index:3;
 }
 
 /* DRIPS */
 .drip {
   position: absolute;
-  top: 100;
-  width: 5px;
-  height: 0;
+  bottom: 20px;
+  width: 10px;
+  height: 40px;
   background: #8B0000;
   border-radius: 50%;
   animation: drip 1.5s infinite ease-in-out;
 }
 
-.drip1 { left: 15%; }
-.drip2 { left: 35%; }
-.drip3 { left: 55%; }
-.drip4 { left: 75%; }
-.drip5 { left: 90%; }
+.drip1 { left: 15%; animation-delay: 0s;}
+.drip2 { left: 35%; animation-delay: 0.4s;}
+.drip3 { left: 55%; animation-delay: 0.8s;}
+.drip4 { left: 75%; animation-delay: 1.2s;}
+.drip5 { left: 90%; animation-delay: 1.6s;}
 
-@keyframes drip {
-  0% { 
-   height: 0; 
-   opacity: 0; 
-  }
-  40% { 
-   height: 25px; 
-   opacity: 1; 
-  }
-  100% { 
-   height: 40px; 
-   opacity: 0; 
-  }
+@keyframes drip-fall{
+  0% { height: 0; opacity: 0;}
+  50% { height: 40px; opacity: 1;}
+  100% {  height: 10px; opacity: 0.7;}
 }
 </style>
 
