@@ -283,41 +283,58 @@ h1 {
     filter: drop-shadow(0 0 10px red);
 }
 
-/* Blood wrapper */
-.blood-logo {
-    position: relative;
-    display: inline-block;
+/* Header and logo */
+.logo-header {
+  position: relative;
+  display: inline-block;
+  margin: 50px auto;
 }
 
-/* Dripping blood effect */
-.blood-logo::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 90%;
-    width: 80%;
-    height: 40px;
-    background: linear-gradient(to bottom, #8b0000, transparent);
-    border-radius: 50%;
-    animation: drip 2s infinite;
-    opacity: 0.8;
+.logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
+
+/* Blood pool under logo */
+.blood-pool {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: #4B0000;
+  border-radius: 0 0 50% 50%;
+  overflow: visible;
+}
+
+/* Drips */
+.drip {
+  position: absolute;
+  bottom: 100%; /* start at top of pool */
+  width: 10px;
+  height: 50px;
+  background: #8B0000;
+  clip-path: polygon(
+    50% 0%, 60% 20%, 40% 40%, 55% 60%, 45% 80%, 50% 100%, 40% 90%, 60% 70%, 50% 50%, 55% 30%
+  ); /* jagged, irregular drip shape */
+  animation: drip-fall 2s infinite ease-in-out;
+}
+
+/* Different horizontal positions and delays */
+.drip1 { left: 10%; animation-delay: 0s; }
+.drip2 { left: 25%; animation-delay: 0.4s; }
+.drip3 { left: 45%; animation-delay: 0.8s; }
+.drip4 { left: 65%; animation-delay: 1.2s; }
+.drip5 { left: 85%; animation-delay: 1.6s; }
 
 /* Drip animation */
-@keyframes drip {
-    0% {
-        height: 20px;
-        opacity: 0.7;
-    }
-    50% {
-        height: 50px;
-        opacity: 1;
-    }
-    100% {
-        height: 20px;
-        opacity: 0.7;
-    }
+@keyframes drip-fall {
+  0%, 20% { transform: scaleY(0); }
+  50% { transform: scaleY(1.3); }
+  80%, 100% { transform: scaleY(1); }
+}
+
 }
 
 .logo {
@@ -403,11 +420,16 @@ document.getElementById('demon').addEventListener('click', function() {
 <div class="content">
 
     <!-- Header -->
-<div class="top-banner">
-    <div class="blood-logo">
-    <img src="images/logo.png"class="banner-logo">
+<div class="logo-header">
+    <img src="images/logo.png" alt="horror logo" class="banner-logo">
+    <div class="blood-pool">
+        <div class="drip drip1"></div>
+        <div class="drip drip2"></div>
+        <div class="drip drip3"></div>
+        <div class="drip drip4"></div>
+        <div class="drip drip5"></div>
     </div>
-</div>
+</header>
     
     <h1>Horror Studios Killer Custom Creations</h1>
     <p class="headline-caption">
