@@ -62,7 +62,72 @@
         }
     </style>
 </head>
+    <style>
+        .scroll-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll-track {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.scroll-track img {
+    width: 150px;
+    border: 2px solid #e74c3c;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Pause on hover */
+.scroll-track:hover {
+    animation-play-state: paused;
+}
+
+/* Auto scroll */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Lightbox */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 3px solid #e74c3c;
+}
+    </style>
 <body>
+
+    <script>
+function openLightbox(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+
     <header>
         <h1>Horror Studios Killer Custom Creations</h1>
         <p>From the 80's Classics to the Spine Chilling Modern Films, we bring horror to life!</p>
@@ -70,71 +135,65 @@
     
 <section>
     <h2>Photo Gallery</h2>
-    <div class="photo-gallery">
 
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-2.png" alt="Product 2">
+    <div class="scroll-container">
+        <div class="scroll-track">
+
+            <!-- ORIGINAL SET -->
+            <img src="images/Untitled%20design-2.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-3.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-4.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-5.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-6.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-7.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-8.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-9.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-10.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-11.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-12.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-13.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-14.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-15.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-16.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-17.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-18.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-19.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-20.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-21.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-22.png" onclick="openLightbox(this.src)">
+
+            <!-- DUPLICATE FOR SMOOTH LOOP -->
+            <img src="images/Untitled%20design-2.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-3.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-4.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-5.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-6.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-7.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-8.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-9.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-10.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-11.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-12.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-13.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-14.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-15.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-16.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-17.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-18.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-19.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-20.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-21.png" onclick="openLightbox(this.src)">
+            <img src="images/Untitled%20design-22.png" onclick="openLightbox(this.src)">
+
         </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-3.png" alt="Product 3">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-4.png" alt="Product 4">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-5.png" alt="Product 5">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-6.png" alt="Product 6">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-7.png" alt="Product 7">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-8.png" alt="Product 8">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-9.png" alt="Product 9">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-10.png" alt="Product 10">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-11.png" alt="Product 11">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-12.png" alt="Product 12">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-13.png" alt="Product 13">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-14.png" alt="Product 14">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-15.png" alt="Product 15">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-16.png" alt="Product 16">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-17.png" alt="Product 17">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-18.png" alt="Product 18">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-19.png" alt="Product 19">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-20.png" alt="Product 20">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-21.png" alt="Product 21">
-        </div>
-        <div class="gallery-item">
-            <img src="images/Untitled%20design-22.png" alt="Product 22">
-        </div>
+    </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+</div>
+     
 
     </div>
 </section>
