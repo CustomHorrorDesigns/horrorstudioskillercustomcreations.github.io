@@ -16,7 +16,7 @@
  .logo-header {
     position: relative;
     text-align:center;
- {
+ }
  </style>
 
  <style>
@@ -72,9 +72,11 @@
    
  
  <header class="logo-header">
-    <img src="assets/logo.png" id="logo"
+  
+   <div class="logo-wrapper">
+    <img src="assets/logo.png" id="logo">
      
-    <div class="logo-wrapper">
+    <div class="blood-pool">
       <div class="drip drip1"></div>
       <div class="drip drip2"></div>
       <div class="drip drip3"></div>
@@ -84,12 +86,15 @@
  </div>
 
 <style>
+
+.logo-header {
+  text-align: center;
+}
+
 /* WRAPPER */
 .logo-wrapper {
   position: relative;
-  display: block;
-  width: fit-content;
-  margin: 0 auto; /* centers everything */
+  display: inline-block;
 }
 
 /* LOGO */
@@ -97,14 +102,15 @@
   display: block;
   height: 130px;
   width: auto;
+  cursor: pointer;
 }
 
 /* BLOOD POOL */
 .blood-pool {
   position: absolute;
-  left: 0;
-  right: 0;
   top: 100%;
+  left: 0;
+  width: 100%;
   height: 20px;
   background: #4B0000;
   border-radius: 0 0 50px 50px;
@@ -115,7 +121,7 @@
   position: absolute;
   top: 0;
   width: 6px;
-  height: 30px;
+  height: 0;
   background: #8B0000;
   border-radius: 50%;
   animation: drip 2s infinite ease-in-out;
@@ -130,7 +136,7 @@
 @keyframes drip {
   0% { height: 0; opacity: 0; }
   50% { height: 30px; opacity: 1; }
-  100% { height: 15px; opacity: 0.8; }
+  100% { height: 10px; opacity: 0.7; }
 }
 </style>
 
@@ -544,7 +550,7 @@ function changeImage(direction) {
 </script>
 
 <script>
-   const logo=document.getElementById('logo);
+   const logo=document.getElementById('logo');
    const laugh=document.getElementById('demonlaugh');
    logo.addEventListener('click',()=>{
       laugh.currenttime=0;
