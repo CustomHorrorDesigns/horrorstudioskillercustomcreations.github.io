@@ -26,10 +26,10 @@
    left: 50%;
     transform: translateX(-50%);
     top: 100%;
-    width: 200px;
-    height: 40px;
-    background: #4b0000;
-   border-radius: 0 0 50% 50%;
+    width: 220px;
+    height: 25px;
+    background: #5a0000;
+   border-radius: 0 0 60px 60px;
    z-index: 3;
   }
   </style>
@@ -38,30 +38,43 @@
 
  .drip {
    position:absolute;
-   bottom:50%
-   width: 8px;
-   height:40px;
+   top:-5px;
+   width: 6px;
+   height: 0x;
    background: #8B0000;
-   border-radius: 50%
+   border-radius: 50%;
     animation: drip 2s infinite ease-in-out;
  }
-  .drip1 { left: 10%; }
-  .drip2 { left: 30%; }
-  .drip3 { left: 50%; }
-  .drip4 { left: 70%; }
-  .drip5 { left: 90%; }
+  .drip1 { left: 15%; animation-delay:0s; }
+  .drip2 { left: 35%; animation-delay: 0.4s; }
+  .drip3 { left: 55%; animation-delay: 0.8s; }
+  .drip4 { left: 75%; animation-delay: 1.2s;}
+  .drip5 { left: 90%; animation-delay: 1.6s; }
 
   @keyframes drip {
-   0% { height: 0; opacity: 0; }
-   50% { height: 40px; opacity: 1; }
-   100% { height: 20px; opacity: 0.8; }
+   0% { 
+    height: 0;
+    opacity: 0;
+   }
+   30% { 
+    height: 25px; 
+    opacity: 1; 
+   }
+   60% { 
+    height: 40px; 
+   }
+    100% {
+     height: 10px;
+    opacity: 0.7; 
+    }
   }
   </style>
   
    
  
  <header class="logo-header">
-    <img src="assets/logo.png"class="logo" id="logo"alt="logo" style="height:130 px; width:auto; display:block; margin:0 auto; curser:pointer;">
+    <img src="assets/logo.png" id="logo"
+     
     <div class="blood-pool">
       <div class="drip drip1"></div>
       <div class="drip drip2"></div>
