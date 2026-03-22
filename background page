@@ -6,22 +6,21 @@
     <style>
         body {
             background-color: #0b0b0b;
-            color: #f23a3a;
-            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+            font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #1a1a1a;
+            background-color: #1c1c1c;
             padding: 2rem;
-            border-bottom: 2px solid #f23a3a;
+            border-bottom: 2px solid #e74c3c;
         }
         h1 {
             font-size: 2.5rem;
             margin: 0;
-            color: #f23a3a;
-            text-shadow: 2px 2px #000;
+            color: #e74c3c;
         }
         p {
             font-size: 1.2rem;
@@ -31,22 +30,26 @@
         section {
             padding: 2rem;
         }
-        .product-list {
+        .product-gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 2rem;
         }
         .product {
-            background-color: #1a1a1a;
-            border: 1px solid #f23a3a;
+            background-color: #1c1c1c;
+            border: 1px solid #e74c3c;
             padding: 1rem;
             width: 200px;
             text-align: center;
             border-radius: 5px;
         }
+        .product img {
+            width: 100%;
+            border-radius: 5px;
+        }
         a {
-            color: #f23a3a;
+            color: #e74c3c;
             text-decoration: none;
         }
         a:hover {
@@ -55,42 +58,46 @@
         footer {
             margin-top: 2rem;
             padding: 1rem;
-            border-top: 2px solid #f23a3a;
+            border-top: 2px solid #e74c3c;
         }
     </style>
 </head>
 <body>
     <header>
         <h1>Horror Studios Killer Custom Creations</h1>
-        <p>From the iconic scares of the 80’s to the latest chills of modern horror, our handmade collectibles bring nightmares to life!</p>
+        <p>From today’s creepiest films to spine-chilling handmade collectibles, we bring modern horror to life!</p>
     </header>
 
     <section>
         <h2>Featured Products</h2>
-        <div class="product-list">
+        <div class="product-gallery">
             <div class="product">
-                <h3>Retro Slasher Figurine</h3>
-                <p>Handmade collectible inspired by classic 80’s horror.</p>
+                <img src="https://via.placeholder.com/200x200?text=Figurine+1" alt="Modern Horror Figurine">
+                <h3>Modern Horror Figurine</h3>
+                <p>Handmade collectible inspired by the latest horror films.</p>
             </div>
             <div class="product">
-                <h3>Modern Horror Décor</h3>
-                <p>Bring today’s creepiest films into your home.</p>
+                <img src="https://via.placeholder.com/200x200?text=Décor+1" alt="Scary Home Décor">
+                <h3>Scary Home Décor</h3>
+                <p>Bring today’s creepiest stories into your space.</p>
             </div>
             <div class="product">
+                <img src="https://via.placeholder.com/200x200?text=Collectible+1" alt="Limited Edition Collectible">
                 <h3>Limited Edition Collectibles</h3>
-                <p>One-of-a-kind items for true horror fans.</p>
+                <p>Unique items for true horror fans.</p>
             </div>
         </div>
     </section>
 
     <section>
         <h2>Contact & Orders</h2>
-        <p>Email us at <a href="mailto:howiescustomhorrordesigns@yahoo.com">howiescustomhorrordesigns@yahoo.com</a></p>
-        <p>Follow us on Facebook: <a href="https://www.facebook.com/KillerHorrorStudiosCustomCreations">@CustomHorrorDesignsbyHowie</a></p>
+        <p>Email: <a href="mailto:Howiescustomhorrordesigns@yahoo.com">Howiescustomhorrordesigns@yahoo.com</a></p>
+        <p>Facebook: <a href="https://www.facebook.com/killerhorrorstudioscustomcreations">killerhorrorstudioscustomcreations</a></p>
+        <p>Handle: @customhorrordesignsbyhowie</p>
     </section>
 
     <footer>
-        &copy; 2026 Horror Studios Killer Creations
+        &copy; 2026 Horror Studios Killer Custom Creations
     </footer>
 </body>
 </html>
