@@ -212,11 +212,12 @@ h1 {
 </head>
 <body>
 
-<audio id="demon-laugh.mp3" src="images/demon-laugh.mp3" preload="auto"></audio>
+<audio id="demon-laugh" src="images/demon-laugh.mp3" preload="auto"></audio>
 
 <script>
-document.getElementById('demon').addEventListener('mouseenter', function() {
-  document.getElementById('demon-laugh.mp3').play();
+document.getElementById('demon').addEventListener('click', function() {
+  const sound = document.getElementById('demon-laugh');sound.currentTime = 0;
+    sound.play();
 });
     
 </script>
