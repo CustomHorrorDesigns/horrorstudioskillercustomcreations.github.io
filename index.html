@@ -3,147 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Horror Studios Killer Custom Creations</title>
+
+    <!-- Metal Mania font for header -->
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+
     <style>
+        /* ===== Body & general ===== */
         body {
-            background-color: #0b0b0b;
-            color: #e74c3c;
-            font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
+            background: #111;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
         }
-        header {
-            background-color: #1c1c1c;
-            padding: 2rem;
-            border-bottom: 2px solid #e74c3c;
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            color: #e74c3c;
-        }
-        p {
-            font-size: 1.2rem;
-            margin: 1rem auto;
-            max-width: 600px;
-        }
-        section {
-            padding: 2rem;
-        }
-        .product-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-        .product {
-            background-color: #1c1c1c;
-            border: 1px solid #e74c3c;
-            padding: 1rem;
-            width: 200px;
-            text-align: center;
-            border-radius: 5px;
-        }
-        .product img {
-            width: 100%;
-            border-radius: 5px;
-        }
-        a {
-            color: #e74c3c;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 2rem;
-            padding: 1rem;
-            border-top: 2px solid #e74c3c;
-        }
-    </style>
-</head>
-    <style>
-        .scroll-container {
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 100%;
-    -webkit-overflow-scrolling: touch;
-}
 
-.scroll-track {
-    display: flex;
-    gap: 1rem;
-    width: max-content;
-    animation: scroll 40s linear infinite;
-}
-
-.scroll-track img {
-    width: 150px;
-    border: 2px solid #e74c3c;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Pause on hover */
-.scroll-track:hover {
-    animation-play-state: paused;
-}
-
-/* Auto scroll */
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-/* Lightbox */
-#lightbox {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    display: none;
-    justify-content: center;
-    align-items: center;
-}
-
-#lightbox img {
-    max-width: 90%;
-    max-height: 90%;
-    border: 3px solid #e74c3c;
-}
-        @keyframes flicker {
-    0% { opacity: 1; }
-    50% { opacity: 0.85; }
-    100% { opacity: 1; }
-}
-
-.scroll-track img:hover {
-    animation: flicker 0.2s infinite;
-}
-
-        /* Horror hover effect */
-.scroll-track img {
-    width: 150px;
-    border: 2px solid #e74c3c;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-}
-
-/* Hover effect */
-.scroll-track img:hover {
-    transform: scale(1.1) rotate(-1deg);
-    box-shadow: 0 0 20px #e74c3c, 0 0 40px #8b0000;
-    filter: brightness(1.2) contrast(1.3);
-}
-        
-<head>
-    <style>
-        /* Other CSS like gallery, hover, lightbox, demon, etc. goes here */
-
-        /* Fog overlay */
+        /* ===== Fog Layer ===== */
         .fog {
             position: fixed;
             top: 0;
@@ -164,178 +39,224 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* Keep fog behind all other content */
-        body > *:not(.fog) {
+        /* ===== Content above fog ===== */
+        .content {
             position: relative;
             z-index: 2;
+            padding: 20px;
         }
 
+        /* ===== Header ===== */
+        h1 {
+            font-family: 'Metal Mania', cursive;
+            color: #e74c3c;
+            text-shadow: 2px 2px 8px #000;
+            font-size: 3em;
+            text-align: center;
+        }
+
+        /* ===== Scroll Gallery ===== */
+        .scroll-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+            margin-top: 50px;
+        }
+
+        .scroll-track {
+            display: flex;
+            gap: 1rem;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        .scroll-track img {
+            width: 150px;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+        }
+
+        /* Horror hover + glitch */
+        .scroll-track img:hover {
+            transform: scale(1.1) rotate(-1deg);
+            box-shadow: 0 0 20px #e74c3c, 0 0 40px #8b0000;
+            filter: brightness(1.2) contrast(1.3);
+            animation: glitch 0.3s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0) scale(1.1); }
+            20% { transform: translate(-2px, 2px) scale(1.1); }
+            40% { transform: translate(2px, -2px) scale(1.1); }
+            60% { transform: translate(-2px, -2px) scale(1.1); }
+            80% { transform: translate(2px, 2px) scale(1.1); }
+            100% { transform: translate(0) scale(1.1); }
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== Lightbox ===== */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border: 3px solid #e74c3c;
+        }
+
+        .close, .prev, .next {
+            position: absolute;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .close { top: 20px; right: 30px; font-size: 50px; }
+        .prev { left: 20px; }
+        .next { right: 20px; }
+
+        /* ===== Demon Head ===== */
+        #demon {
+            position: fixed;
+            width: 120px;
+            top: 20%;
+            left: 10%;
+            z-index: 999;
+            pointer-events: none;
+            animation: floatDemon 6s ease-in-out infinite, glitchDemon 0.2s infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes floatDemon {
+            0% { transform: translate(0,0) rotate(0deg);}
+            25% { transform: translate(20px,-30px) rotate(5deg);}
+            50% { transform: translate(-20px,20px) rotate(-5deg);}
+            75% { transform: translate(30px,10px) rotate(3deg);}
+            100% { transform: translate(0,0) rotate(0deg);}
+        }
+        @keyframes glitchDemon {
+            0% { filter:none; }
+            20% { filter: contrast(2) hue-rotate(20deg); }
+            40% { filter: invert(1); }
+            60% { filter: contrast(3); }
+            80% { filter: hue-rotate(-20deg); }
+            100% { filter:none; }
+        }
     </style>
 </head>
-
-#demon {
-    position: fixed;
-    width: 120px;
-    top: 20%;
-    left: 10%;
-    z-index: 999;
-    pointer-events: none;
-    animation: floatDemon 6s ease-in-out infinite, glitchDemon 0.2s infinite;
-    opacity: 0.9;
-}
-
-/* Floating movement */
-@keyframes floatDemon {
-    0% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(20px, -30px) rotate(5deg); }
-    50% { transform: translate(-20px, 20px) rotate(-5deg); }
-    75% { transform: translate(30px, 10px) rotate(3deg); }
-    100% { transform: translate(0, 0) rotate(0deg); }
-}
-
-/* Glitch effect */
-@keyframes glitchDemon {
-    0% { filter: none; }
-    20% { filter: contrast(2) hue-rotate(20deg); }
-    40% { filter: invert(1); }
-    60% { filter: contrast(3); }
-    80% { filter: hue-rotate(-20deg); }
-    100% { filter: none; }
-}
-
-.scroll-track img:hover {
-    filter: contrast(1.5) brightness(1.2);
-    box-shadow:
-        2px 0 red,
-        -2px 0 cyan;
-}
-
-    </style>
-
-    <script> const demon = document.getElementById("demon"); demon.addEventListener("click", () => { const audio = new Audio("https://www.myinstants.com/media/sounds/evil-laugh.mp3"); audio.play(); }); </script>
-
-    
 <body>
+    <!-- Fog Layer -->
     <div class="fog"></div>
 
-   body > *:not(.fog) {
-    position: relative;
-    z-index: 2;
-}
+    <!-- Main Content -->
+    <div class="content">
+        <h1>Horror Studios Killer Custom Creations</h1>
+
+        <!-- Scroll Gallery -->
+        <div class="scroll-container">
+            <div class="scroll-track">
+                <!-- Images 2 → 22 -->
+                <img src="images/Untitled%20design-2.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-3.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-4.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-5.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-6.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-7.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-8.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-9.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-10.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-11.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-12.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-13.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-14.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-15.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-16.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-17.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-18.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-19.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-20.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-21.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-22.png" onclick="openLightbox(this.src)">
+
+                <!-- Duplicate for smooth loop -->
+                <img src="images/Untitled%20design-2.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-3.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-4.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-5.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-6.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-7.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-8.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-9.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-10.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-11.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-12.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-13.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-14.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-15.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-16.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-17.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-18.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-19.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-20.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-21.png" onclick="openLightbox(this.src)">
+                <img src="images/Untitled%20design-22.png" onclick="openLightbox(this.src)">
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <span class="close" onclick="closeLightbox()">×</span>
+        <span class="prev" onclick="changeImage(-1)">❮</span>
+        <img id="lightbox-img">
+        <span class="next" onclick="changeImage(1)">❯</span>
+    </div>
+
+    <!-- Demon head -->
     <img id="demon" src="https://i.ibb.co/4pDNDk1/demon.png">
 
+    <!-- Scripts -->
     <script>
-function openLightbox(src) {
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightbox-img").src = src;
-}
+        // Lightbox
+        let currentIndex = 0;
+        let images = Array.from(document.querySelectorAll('.scroll-track img'));
 
-function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-}
-</script>
+        function openLightbox(src) {
+            images = Array.from(document.querySelectorAll('.scroll-track img'));
+            currentIndex = images.findIndex(img => img.src === src);
+            document.getElementById("lightbox").style.display = "flex";
+            document.getElementById("lightbox-img").src = src;
+        }
 
+        function closeLightbox() {
+            document.getElementById("lightbox").style.display = "none";
+        }
 
-    <header>
-        <h1>Horror Studios Killer Custom Creations</h1>
-        <p>From the 80's Classics to the Spine Chilling Modern Films, we bring horror to life!</p>
-    </header>
-    
-<section>
-    <h2>Photo Gallery</h2>
-
-    <div class="scroll-container">
-        <div class="scroll-track">
-
-            <!-- ORIGINAL SET -->
-            <img src="images/Untitled%20design-2.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-3.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-4.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-5.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-6.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-7.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-8.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-9.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-10.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-11.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-12.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-13.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-14.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-15.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-16.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-17.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-18.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-19.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-20.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-22.png" onclick="openLightbox(this.src)">
-
-            <!-- DUPLICATE FOR SMOOTH LOOP -->
-            <img src="images/Untitled%20design-2.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-3.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-4.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-5.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-6.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-7.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-8.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-9.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-10.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-11.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-12.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-13.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-14.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-15.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-16.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-17.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-18.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-19.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-20.png" onclick="openLightbox(this.src)">
-            <img src="images/Untitled%20design-22.png" onclick="openLightbox(this.src)">
-
-        </div>
-    </div>
-</section>
-
-<!-- Lightbox -->
-<div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img">
-</div>
-     
-
-    </div>
-</section>
-        
-</section>
-
-    <section>
-        <h2>Featured Products</h2>
-        <div class="product-gallery">
-            <div class="product">
-                <img src="https://via.placeholder.com/200x200?text=Figurine+1" alt="Modern Horror Figurine">
-                <h3>Horror Accessories</h3>
-                <p>Handmade collectible accessories inspired by the latest horror films.</p>
-            </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/200x200?text=Décor+1" alt="Scary Home Décor">
-                <h3>Killer Home Décor</h3>
-                <p>Bring today’s creepiest stories into your space.</p>
-            </div>
-            <div class="product">
-                <img src="https://via.placeholder.com/200x200?text=Collectible+1" alt="Limited Edition Collectible">
-                <h3>Custom Clothing</h3>
-                <p>Wearable items for true horror fans.</p>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Contact & Orders</h2>
-        <p>Email: <a href="mailto:Howiescustomhorrordesigns@yahoo.com">Howiescustomhorrordesigns@yahoo.com</a></p>
-        <p>Facebook: <a href="https://www.facebook.com/killerhorrorstudioscustomcreations">Custom Horror Designs by Howie</a></p>
-        <p>Handle: @Custom Horror Designs by Howie</p>
-    </section>
-
-    <footer>
-        &copy; 2026 Horror Studios Killer Custom Creations
-    </footer>
+        function changeImage(direction) {
+            currentIndex += direction;
+            if(currentIndex < 0) currentIndex = images.length - 1;
+            if(currentIndex >= images.length) currentIndex = 0;
+            document.getElementById("lightbox-img").src = images[currentIndex].src;
+        }
+    </script>
 </body>
 </html>
