@@ -9,32 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
 
 <style>
-/* Body */
-body {
-    margin: 0;
-    padding: 0;
-    background: #111;
-    color: #e74c3c;
-    font-family: 'Arial', sans-serif;
-    overflow-x: hidden;
-}
-
-/* Header & logo */
-.logo-header {
-  text-align: center;
-  position: relative;
-  margin-bottom: 50px;
-}
-
-/* Logo wrapper to contain drips + pool */
-.logo-wrapper {
+/* Centers everything */
+/* Container for logo and drips */
+.logo-container {
   position: relative;
   display: inline-block;
+  text-align: center;
 }
 
-/* Logo */
+/* Logo stays normal */
 .logo {
-  max-width: 300px;
+  max-width: 300px;   /* keep your original size */
   height: auto;
   display: block;
   margin: 0 auto;
@@ -43,10 +28,10 @@ body {
   cursor: pointer;
 }
 
-/* Blood drips */
+/* Blood drips container */
 .blood-drips {
   position: absolute;
-  top: 100%;       /* start below logo */
+  top: 100%;       /* right under the logo */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -54,6 +39,7 @@ body {
   z-index: 1;
 }
 
+/* Each drip */
 .drip {
   width: 20px;
   height: 100px;
@@ -62,53 +48,119 @@ body {
   animation: drip-fall 1.5s infinite alternate;
 }
 
+/* Drip animation */
 @keyframes drip-fall {
   0% { height: 80px; }
   50% { height: 100px; }
   100% { height: 120px; }
 }
 
-/* Blood pool at bottom of logo */
+/* Blood pool at bottom */
 .blood-pool {
   width: 100%;
   height: 80px;
   background: linear-gradient(to top, #4B0000, #8B0000);
   border-radius: 0 0 50% 50%;
-  margin-top: -10px; /* overlap drips slightly */
+  margin-top: -10px; /* overlap slightly with drips */
 }
 
-/* Headline text */
-.logo-header h1 {
+/* Header & logo */
+.header {
+  position: relative;
+  text-align: center;
+}
+
+/* Center header text */
+.logo-header h1,
+.logo-header .headline-caption {
+  text-align: center;
+  margin: 15px 0;
+  color: #e74c3c;
+  position: relative;
+  z-index: 2;
+  font-family: 'Metal Mania', cursive;
+}
+
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  background: #111;
+  color: #e74c3c;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Headline */
+h1 {
   font-family: 'Metal Mania', cursive;
   color: #e74c3c;
   text-shadow: 2px 2px 8px #000;
   font-size: 3em;
-  margin: 20px 0 10px 0;
+  text-align: center;
+  width: 100%;
+  margin: 20px auto;
+  display: block;
 }
 
-.logo-header .headline-caption {
+/* Headline caption */
+.headline-caption {
   font-family: Arial, sans-serif;
-  color: #e74c3c;
-  margin: 0 auto 30px auto;
-  max-width: 800px;
   font-size: 1.2em;
+  color: #e74c3c;
+  text-align: center;
+  margin-top: 15px;
+  line-height: 1.5em;
 }
 
-/* Rest of your CSS (fog, horror cards, scroll gallery, demon head, products, contact, etc.) */
-/* ... keep everything from your original file here ... */
+/* Demon Head size — keep original */
+#demon {
+    position: fixed;
+    width: 120px;
+    top: 20%;
+    left: 10%;
+    z-index: 3;
+    pointer-events: none;
+    animation: floatDemon 6s ease-in-out infinite, glitchDemon 0.2s infinite;
+    opacity: 0.9;
+}
+
+/* Demon animation */
+@keyframes floatDemon {
+    0% { transform: translate(0,0) rotate(0deg);}
+    25% { transform: translate(20px,-30px) rotate(5deg);}
+    50% { transform: translate(-20px,20px) rotate(-5deg);}
+    75% { transform: translate(30px,10px) rotate(3deg);}
+    100% { transform: translate(0,0) rotate(0deg);}
+}
+@keyframes glitchDemon {
+    0% { filter:none; }
+    20% { filter: contrast(2) hue-rotate(20deg); }
+    40% { filter: invert(1); }
+    60% { filter: contrast(3); }
+    80% { filter: hue-rotate(-20deg); }
+    100% { filter:none; }
+}
+
+/* The rest of your CSS (scroll gallery, cards, products, etc.) stays unchanged */
+/* ... keep all your existing CSS below as-is ... */
+
 </style>
+
 </head>
 <body>
 
-<!-- Demon Head -->
-<img id="demon" src="images/demon.png">
+<!-- Fog overlay -->
+<div class="fog"></div>
 
-<!-- Header with logo, drips, pool -->
-<header class="logo-header">
+<!-- Header with logo and dripping blood -->
+<div class="logo-header">
+
   <div class="logo-wrapper">
+    <!-- Logo -->
     <img src="logo.png" class="logo" id="logo">
 
-    <!-- Blood Drips -->
+    <!-- Drips -->
     <div class="blood-drips">
       <div class="drip"></div>
       <div class="drip"></div>
@@ -116,20 +168,25 @@ body {
       <div class="drip"></div>
       <div class="drip"></div>
     </div>
-
-    <!-- Blood Pool -->
-    <div class="blood-pool"></div>
   </div>
 
-  <!-- Headline -->
+  <!-- Blood Pool -->
+  <div class="blood-pool"></div>
+
+  <!-- Header Text -->
   <h1>Horror Studios Killer Custom Creations</h1>
   <p class="headline-caption">
     From classic 80’s horror to the spine chilling modern films, we bring modern horror to life.
   </p>
-</header>
 
-<main>
-  <!-- Your main content (horror-card, scroll gallery, products, contact, etc.) -->
+</div>
+
+<!-- Demon Head -->
+<img id="demon" src="images/demon.png">
+
+<!-- Main Content -->
+<div class="content">
+
   <div class="horror-card">
       <h2> About Us</h2>
       <p>
@@ -138,22 +195,35 @@ body {
           At Horror Studios Killer Custom Creations, we craft one of a kind horror themed items inspired anywhere from the classic 80's movies,
           to todays latest horror hits. We craft handmade collectables that'll make your spine tingle. From creepy decor to collectable
           figurines, each piece is made with care and attention to detail.
-          Wheather you're a lifelong horror fan or just love the darker side of design,our work is made to bring that eerie,
+
+          Wheather you're a lifelong horror fan or just love the darker side of design, our work is made to bring that eerie,
           chilling vibe into your everyday life.
+
           We love all things retro, gory, and nostalgic, making sure every item is as KILLER as the originals that inspired it.
       </p>
   </div>
 
   <!-- Scroll Gallery -->
   <div class="scroll-container">
-      <div class="scroll-track">
-          <!-- images from original code -->
-      </div>
+    <div class="scroll-track">
+      <!-- Your images here -->
+    </div>
   </div>
 
   <!-- Product Sections -->
   <div class="products">
-      <!-- your product cards -->
+      <div class="horror-card">
+          <h2>Creepy Collectibles</h2>
+          <p>Custom, Handmade Collectables. Things fans need in there collection.</p>
+      </div>
+      <div class="horror-card">
+          <h2>Killer Creations</h2>
+          <p>Furnish your fears. Our Horror inspired furniture brings nightmares to life.</p>
+      </div>
+      <div class="horror-card">
+          <h2>Clothing</h2>
+          <p>Wear your nightmares. Our Horror apparel turns fear into fashion.</p>
+      </div>
   </div>
 
   <!-- Contact Info -->
@@ -164,43 +234,8 @@ body {
           👍 Facebook: <a href="https://www.facebook.com/killerhorrorstudioscustomcreations" target="_blank">killerhorrorstudioscustomcreations</a>
       </p>
   </div>
-</main>
 
-<!-- Demon laugh audio -->
-<audio id="demonLaugh" src="assets/demon-laugh.mp3"></audio>
-
-<script>
-  // Click logo to play laugh
-  const logo = document.getElementById('logo');
-  const laugh = document.getElementById('demonLaugh');
-
-  logo.addEventListener('click', () => {
-    laugh.currentTime = 0; // restart if already playing
-    laugh.play();
-  });
-
-  // Lightbox script
-  let currentIndex = 0;
-  let images = Array.from(document.querySelectorAll('.scroll-track img'));
-
-  function openLightbox(src) {
-      images = Array.from(document.querySelectorAll('.scroll-track img'));
-      currentIndex = images.findIndex(img => img.src === src);
-      document.getElementById("lightbox").style.display = "flex";
-      document.getElementById("lightbox-img").src = src;
-  }
-
-  function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-  }
-
-  function changeImage(direction) {
-      currentIndex += direction;
-      if(currentIndex < 0) currentIndex = images.length - 1;
-      if(currentIndex >= images.length) currentIndex = 0;
-      document.getElementById("lightbox-img").src = images[currentIndex].src;
-  }
-</script>
+</div>
 
 <!-- Lightbox -->
 <div id="lightbox">
@@ -209,6 +244,43 @@ body {
     <img id="lightbox-img">
     <span class="next" onclick="changeImage(1)">❯</span>
 </div>
+
+<!-- Scripts -->
+<script>
+// Lightbox
+let currentIndex = 0;
+let images = Array.from(document.querySelectorAll('.scroll-track img'));
+
+function openLightbox(src) {
+    images = Array.from(document.querySelectorAll('.scroll-track img'));
+    currentIndex = images.findIndex(img => img.src === src);
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+function changeImage(direction) {
+    currentIndex += direction;
+    if(currentIndex < 0) currentIndex = images.length - 1;
+    if(currentIndex >= images.length) currentIndex = 0;
+    document.getElementById("lightbox-img").src = images[currentIndex].src;
+}
+
+// Logo click plays laugh
+const logo = document.getElementById('logo');
+const laugh = document.getElementById('demonLaugh');
+
+logo.addEventListener('click', () => {
+  laugh.currentTime = 0;
+  laugh.play();
+});
+</script>
+
+<!-- Demon laugh audio -->
+<audio id="demonLaugh" src="assets/demon-laugh.mp3"></audio>
 
 </body>
 </html>
