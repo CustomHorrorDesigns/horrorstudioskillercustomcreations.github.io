@@ -18,10 +18,19 @@
   <div class="logo-wrapper">
     <!-- Logo -->
     <header class="header">
-  <img src="logo.png" class="logo">
-  <img src="blood-drip.png" class="blood-drip">
+  <div class="logo-container">
+    <img src="logo.png" class="logo">
+    <div class="blood-drips"></div>
+  </div>
 </header>
 
+<main>
+  <!-- Your main content goes here -->
+</main>
+
+<footer>
+  <div class="blood-pool"></div>
+</footer>
     <!-- Blood Pool -->
     <div class="blood-pool"></div>
 
@@ -49,38 +58,43 @@
 }
 
 /* Logo */
-#logo {
-  display: block;
-  height: 180px;  /* bigger logo */
-  width: auto;
-  margin: 0 auto;
-  cursor: pointer;
+/* Header and Logo */
+.header {
   position: relative;
-  z-index: 2;
+  text-align: center;
 }
 
-/* Blood Pool */
-.blood-pool {
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Blood drips */
+.blood-drips {
   position: absolute;
-  bottom: -10px;        /* just below logo */
+  top: 100%;        /* starts below the logo */
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;
-  height: 20px;
-  background: #4B0000;
-  border-radius: 0 0 50px 50px;
-  z-index: 1;
+  width: 50px;      /* width of the drips */
+  height: 200px;    /* length of the drips */
+  background: url('blood-drip.png') repeat-y; /* vertical repeat */
+  background-size: cover;
+  pointer-events: none;
+  z-index: 10;
 }
 
-/* Drips */
-.drip {
-  position: absolute;
-  top: 100%;           /* starts below pool */
-  width: 8px;
-  height: 40px;
-  background: #8B0000;
-  border-radius: 50%;
-  animation: drip-fall 2s infinite ease-in-out;
+/* Blood pool at the bottom */
+.blood-pool {
+  width: 100%;
+  height: 80px;
+  background: url('blood-pool.png') no-repeat bottom;
+  background-size: cover;
 }
 
 .drip1 { left: 15%; animation-delay: 0s; }
