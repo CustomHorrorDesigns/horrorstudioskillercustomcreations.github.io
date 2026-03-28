@@ -9,29 +9,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
 
 <style>
-/* Centers everything */
-/* Container for logo and drips */
-.logo-container {
-  position: relative;
-  display: inline-block;
-  text-align: center;
+/* Body */
+body {
+    margin: 0;
+    padding: 0;
+    background: #111;
+    color: #e74c3c;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
 }
 
-/* Logo stays normal */
+/* Header & Logo */
+.header {
+    position: relative;
+    text-align: center;
+}
+
+.logo-wrapper {
+  position: relative;
+  display: block;
+  margin: 0 auto;  /* centers logo + pool + drips */
+  width: fit-content;
+  z-index: 2;
+}
+
+/* Logo */
 .logo {
-  max-width: 300px;   /* keep your original size */
+  max-width: 300px;
   height: auto;
   display: block;
   margin: 0 auto;
-  position: relative;
-  z-index: 2;
   cursor: pointer;
+  position: relative;
+  z-index: 5;
 }
 
 /* Blood drips container */
 .blood-drips {
   position: absolute;
-  top: 100%;       /* right under the logo */
+  top: 100%; /* start under the logo */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -48,7 +64,6 @@
   animation: drip-fall 1.5s infinite alternate;
 }
 
-/* Drip animation */
 @keyframes drip-fall {
   0% { height: 80px; }
   50% { height: 100px; }
@@ -64,13 +79,7 @@
   margin-top: -10px; /* overlap slightly with drips */
 }
 
-/* Header & logo */
-.header {
-  position: relative;
-  text-align: center;
-}
-
-/* Center header text */
+/* Headline text */
 .logo-header h1,
 .logo-header .headline-caption {
   text-align: center;
@@ -81,39 +90,7 @@
   font-family: 'Metal Mania', cursive;
 }
 
-/* Body */
-body {
-  margin: 0;
-  padding: 0;
-  background: #111;
-  color: #e74c3c;
-  font-family: 'Arial', sans-serif;
-  overflow-x: hidden;
-}
-
-/* Headline */
-h1 {
-  font-family: 'Metal Mania', cursive;
-  color: #e74c3c;
-  text-shadow: 2px 2px 8px #000;
-  font-size: 3em;
-  text-align: center;
-  width: 100%;
-  margin: 20px auto;
-  display: block;
-}
-
-/* Headline caption */
-.headline-caption {
-  font-family: Arial, sans-serif;
-  font-size: 1.2em;
-  color: #e74c3c;
-  text-align: center;
-  margin-top: 15px;
-  line-height: 1.5em;
-}
-
-/* Demon Head size — keep original */
+/* Demon head - original size */
 #demon {
     position: fixed;
     width: 120px;
@@ -125,7 +102,6 @@ h1 {
     opacity: 0.9;
 }
 
-/* Demon animation */
 @keyframes floatDemon {
     0% { transform: translate(0,0) rotate(0deg);}
     25% { transform: translate(20px,-30px) rotate(5deg);}
@@ -142,9 +118,30 @@ h1 {
     100% { filter:none; }
 }
 
-/* The rest of your CSS (scroll gallery, cards, products, etc.) stays unchanged */
-/* ... keep all your existing CSS below as-is ... */
+/* Headline h1 */
+h1 {
+    font-family: 'Metal Mania', cursive;
+    color: #e74c3c;
+    text-shadow: 2px 2px 8px #000;
+    font-size: 3em;
+    text-align: center;
+    width: 100%;
+    margin: 20px auto;
+    display: block;
+}
 
+/* Headline caption */
+.headline-caption {
+    font-family: Arial, sans-serif;
+    font-size: 1.2em;
+    color: #e74c3c;
+    text-align: center;
+    margin-top: 15px;
+    line-height: 1.5em;
+}
+
+/* Scroll gallery, cards, products, and everything else remains unchanged */
+/* ... keep all your original CSS here ... */
 </style>
 
 </head>
@@ -155,7 +152,6 @@ h1 {
 
 <!-- Header with logo and dripping blood -->
 <div class="logo-header">
-
   <div class="logo-wrapper">
     <!-- Logo -->
     <img src="logo.png" class="logo" id="logo">
@@ -170,7 +166,7 @@ h1 {
     </div>
   </div>
 
-  <!-- Blood Pool -->
+  <!-- Blood pool -->
   <div class="blood-pool"></div>
 
   <!-- Header Text -->
@@ -178,7 +174,6 @@ h1 {
   <p class="headline-caption">
     From classic 80’s horror to the spine chilling modern films, we bring modern horror to life.
   </p>
-
 </div>
 
 <!-- Demon Head -->
@@ -186,7 +181,7 @@ h1 {
 
 <!-- Main Content -->
 <div class="content">
-
+  <!-- About Us -->
   <div class="horror-card">
       <h2> About Us</h2>
       <p>
@@ -284,7 +279,6 @@ logo.addEventListener('click', () => {
 
 </body>
 </html>
-
 
 
 
