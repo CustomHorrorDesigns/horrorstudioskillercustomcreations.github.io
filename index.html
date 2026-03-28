@@ -21,6 +21,12 @@
   <div class="logo-container">
     <img src="logo.png" class="logo">
     <div class="blood-drips"></div>
+   <header class="header">
+  <div class="logo-container">
+    <img src="logo.png" class="logo">
+    <img src="blood-drip.png" class="blood-drip">
+  </div>
+</header>
   </div>
 </header>
 
@@ -49,6 +55,34 @@
 <style>
 
  /* Centers everything */
+ /* Container for logo and drips */
+.logo-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Logo stays normal */
+.logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  z-index: 5;
+  position: relative;
+}
+
+/* Blood drips */
+.blood-drip {
+  position: absolute;
+  top: 100%;        /* starts right under the logo */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;      /* adjust thickness */
+  height: 200px;    /* adjust length */
+  z-index: 1;       /* behind logo if needed */
+}
+
+
 .logo-wrapper {
   position: relative;
   display: block;
