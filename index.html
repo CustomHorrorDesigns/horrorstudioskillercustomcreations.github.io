@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horror Studios Killer Custom Creations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #000;
+      --blood-dark: #3a0000;
+      --blood-mid: #7a0000;
+      --blood-hi: #c50d0d;
+      --red: #e74c3c;
+      --card: #140000;
+    }
  (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
 diff --git a/index.html b/index.html
 index 166947681906d626acd1fbc67226e695e44eddfb..5988cf2b039f4f559e31fba3e3c76f51ae11b5c6 100644
@@ -144,4 +160,427 @@ EOF
 )
  
 
+    * { box-sizing: border-box; }
 
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--red);
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .fog {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.25;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(255,255,255,0.09), transparent 45%),
+        radial-gradient(circle at 75% 65%, rgba(255,255,255,0.08), transparent 50%);
+      animation: fogShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes fogShift {
+      from { transform: translateX(-20px); }
+      to { transform: translateX(20px); }
+    }
+
+    header {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 14px;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      text-align: center;
+      width: fit-content;
+    }
+
+    #logo {
+      display: block;
+      width: min(180px, 44vw);
+      height: auto;
+      margin: 0 auto;
+      cursor: pointer;
+      filter: drop-shadow(0 0 14px rgba(120, 0, 0, 0.8));
+      z-index: 4;
+      position: relative;
+    }
+
+    .blood-drips {
+      position: absolute;
+      left: 50%;
+      top: calc(100% - 8px);
+      transform: translateX(-50%);
+      width: 170px;
+      height: 128px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .drip {
+      position: absolute;
+      width: 10px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, var(--blood-hi) 0%, var(--blood-mid) 50%, var(--blood-dark) 100%);
+      box-shadow: 0 0 6px rgba(125, 0, 0, 0.9);
+      animation: dripFlow 2.4s ease-in-out infinite;
+      transform-origin: top;
+    }
+
+    .drip::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #ff3b3b, var(--blood-mid) 65%, var(--blood-dark));
+    }
+
+    .drip:nth-child(1) { left: 16px; height: 52px; animation-delay: 0s; }
+    .drip:nth-child(2) { left: 50px; height: 82px; animation-delay: 0.25s; }
+    .drip:nth-child(3) { left: 86px; height: 66px; animation-delay: 0.5s; }
+    .drip:nth-child(4) { left: 120px; height: 94px; animation-delay: 0.15s; }
+    .drip:nth-child(5) { left: 148px; height: 58px; animation-delay: 0.7s; }
+
+    @keyframes dripFlow {
+      0% { transform: scaleY(0.8); opacity: 0.75; }
+      50% { transform: scaleY(1.15); opacity: 1; }
+      100% { transform: scaleY(0.9); opacity: 0.8; }
+    }
+
+    .blood-pool {
+      width: 260px;
+      height: 52px;
+      margin: 90px auto 0;
+      border-radius: 50% 50% 45% 45% / 70% 70% 40% 40%;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(255,75,75,0.45), transparent 33%),
+        radial-gradient(circle at 70% 45%, rgba(255,80,80,0.35), transparent 30%),
+        linear-gradient(to top, #250000 0%, #590000 55%, #9c0000 100%);
+      box-shadow: 0 0 20px rgba(120, 0, 0, 0.7), inset 0 8px 10px rgba(255, 40, 40, 0.2);
+    }
+
+    main {
+      position: relative;
+      z-index: 3;
+      padding: 8px 16px 24px;
+    }
+
+    h1 {
+      font-family: 'Metal Mania', cursive;
+      font-size: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+      margin: 10px auto;
+      text-shadow: 2px 2px 8px #000;
+    }
+
+    .headline-caption {
+      text-align: center;
+      margin: 0 auto 24px;
+      max-width: 900px;
+      line-height: 1.5;
+    }
+
+    .horror-card {
+      max-width: 900px;
+      margin: 26px auto;
+      padding: 24px;
+      border: 2px solid #770000;
+      border-radius: 10px;
+      background: var(--card);
+      box-shadow: 0 0 20px rgba(139, 0, 0, 0.55);
+    }
+
+    .horror-card h2 {
+      margin-top: 0;
+      font-family: 'Metal Mania', cursive;
+      color: #ff2a2a;
+      text-shadow: 0 0 8px #7a0000;
+    }
+
+    .horror-card p {
+      color: #f2f2f2;
+      line-height: 1.6;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .products .horror-card {
+      width: min(100%, 310px);
+      margin: 0;
+    }
+
+    .scroll-container {
+      overflow: hidden;
+      width: 100%;
+      margin: 30px 0;
+      border-top: 1px solid #500;
+      border-bottom: 1px solid #500;
+      padding: 12px 0;
+      background: linear-gradient(to right, transparent, rgba(120,0,0,0.12), transparent);
+    }
+
+    .scroll-track {
+      display: flex;
+      gap: 14px;
+      width: max-content;
+      will-change: transform;
+      animation: carousel 52s linear infinite;
+    }
+
+    .scroll-track:hover { animation-play-state: paused; }
+
+    @keyframes carousel {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .scroll-track img {
+      width: 150px;
+      border: 2px solid var(--red);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    }
+
+    .scroll-track img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 15px var(--red), 0 0 28px #740000;
+    }
+
+    .scroll-track img.shake {
+      animation: clickShake .45s ease;
+    }
+
+    @keyframes clickShake {
+      0% { transform: translate(0, 0) rotate(0deg) scale(1.08); }
+      20% { transform: translate(-3px, 2px) rotate(-1deg) scale(1.08); }
+      40% { transform: translate(3px, -2px) rotate(1deg) scale(1.08); }
+      60% { transform: translate(-2px, -2px) rotate(-0.8deg) scale(1.08); }
+      80% { transform: translate(2px, 2px) rotate(0.8deg) scale(1.08); }
+      100% { transform: translate(0, 0) rotate(0deg) scale(1.08); }
+    }
+
+    #demon {
+      position: fixed;
+      width: min(130px, 28vw);
+      top: 20%;
+      left: 8%;
+      z-index: 2;
+      pointer-events: none;
+      opacity: .93;
+      animation: floatDemon 6s ease-in-out infinite, glitchDemon 0.28s infinite;
+    }
+
+    @keyframes floatDemon {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(22px, -28px) rotate(4deg); }
+      50% { transform: translate(-16px, 16px) rotate(-4deg); }
+      75% { transform: translate(26px, 8px) rotate(2deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    @keyframes glitchDemon {
+      0% { filter: none; }
+      20% { filter: contrast(2) hue-rotate(18deg); }
+      40% { filter: invert(1); }
+      60% { filter: contrast(3); }
+      80% { filter: hue-rotate(-18deg); }
+      100% { filter: none; }
+    }
+
+    .contact {
+      text-align: center;
+      margin: 34px auto 12px;
+    }
+
+    .contact a { color: var(--red); text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.94);
+      z-index: 20;
+    }
+
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      border: 3px solid var(--red);
+    }
+
+    .close, .prev, .next {
+      position: absolute;
+      color: #ff3333;
+      cursor: pointer;
+      user-select: none;
+      font-size: 44px;
+    }
+
+    .close { top: 22px; right: 32px; }
+    .prev { left: 20px; top: 50%; transform: translateY(-50%); }
+    .next { right: 20px; top: 50%; transform: translateY(-50%); }
+  </style>
+</head>
+<body>
+  <div class="fog"></div>
+  <img id="demon" src="images/demon.png" alt="Floating demon head" />
+
+  <header>
+    <div class="logo-wrapper">
+      <img id="logo" src="images/logo.png" alt="Horror Studios logo" />
+      <div class="blood-drips" aria-hidden="true">
+        <span class="drip"></span>
+        <span class="drip"></span>
+        <span class="drip"></span>
+        <span class="drip"></span>
+        <span class="drip"></span>
+      </div>
+      <div class="blood-pool" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main>
+    <h1>Horror Studios Killer Custom Creations</h1>
+    <p class="headline-caption">From classic 80’s horror to the spine-chilling modern films, we bring modern horror to life.</p>
+
+    <div class="horror-card">
+      <h2>About Us</h2>
+      <p>
+        Welcome to Horror Studios Killer Custom Creations. Your one stop spot for unique, handmade horror collectables.
+        Perfect for horror fans, collectors, and anyone looking to add a touch of retro fright to their space.
+        At Horror Studios Killer Custom Creations, we craft one-of-a-kind horror themed items inspired anywhere from classic 80s movies
+        to today’s latest horror hits.
+      </p>
+    </div>
+
+    <div class="scroll-container">
+      <div class="scroll-track" id="scrollTrack">
+        <img src="images/Untitled design-2.png" class="glitch" alt="Design 2" onclick="openLightbox(this)">
+        <img src="images/Untitled design-3.png" class="glitch" alt="Design 3" onclick="openLightbox(this)">
+        <img src="images/Untitled design-4.png" class="glitch" alt="Design 4" onclick="openLightbox(this)">
+        <img src="images/Untitled design-5.png" class="glitch" alt="Design 5" onclick="openLightbox(this)">
+        <img src="images/Untitled design-6.png" class="glitch" alt="Design 6" onclick="openLightbox(this)">
+        <img src="images/Untitled design-7.png" class="glitch" alt="Design 7" onclick="openLightbox(this)">
+        <img src="images/Untitled design-8.png" class="glitch" alt="Design 8" onclick="openLightbox(this)">
+        <img src="images/Untitled design-9.png" class="glitch" alt="Design 9" onclick="openLightbox(this)">
+        <img src="images/Untitled design-10.png" class="glitch" alt="Design 10" onclick="openLightbox(this)">
+        <img src="images/Untitled design-11.png" class="glitch" alt="Design 11" onclick="openLightbox(this)">
+        <img src="images/Untitled design-12.png" class="glitch" alt="Design 12" onclick="openLightbox(this)">
+        <img src="images/Untitled design-13.png" class="glitch" alt="Design 13" onclick="openLightbox(this)">
+        <img src="images/Untitled design-14.png" class="glitch" alt="Design 14" onclick="openLightbox(this)">
+        <img src="images/Untitled design-15.png" class="glitch" alt="Design 15" onclick="openLightbox(this)">
+        <img src="images/Untitled design-16.png" class="glitch" alt="Design 16" onclick="openLightbox(this)">
+        <img src="images/Untitled design-17.png" class="glitch" alt="Design 17" onclick="openLightbox(this)">
+        <img src="images/Untitled design-18.png" class="glitch" alt="Design 18" onclick="openLightbox(this)">
+        <img src="images/Untitled design-19.png" class="glitch" alt="Design 19" onclick="openLightbox(this)">
+        <img src="images/Untitled design-20.png" class="glitch" alt="Design 20" onclick="openLightbox(this)">
+        <img src="images/Untitled design-22.png" class="glitch" alt="Design 22" onclick="openLightbox(this)">
+      </div>
+    </div>
+
+    <div class="products">
+      <div class="horror-card">
+        <h2>Creepy Collectibles</h2>
+        <p>Custom, handmade collectables. Things fans need in their collection.</p>
+      </div>
+      <div class="horror-card">
+        <h2>Killer Creations</h2>
+        <p>Furnish your fears. Our horror inspired furniture brings nightmares to life.</p>
+      </div>
+      <div class="horror-card">
+        <h2>Clothing</h2>
+        <p>Wear your nightmares. Our horror apparel turns fear into fashion.</p>
+      </div>
+    </div>
+
+    <div class="contact">
+      <p>
+        📧 Email:
+        <a href="mailto:Howiescustomhorrordesigns@yahoo.com">Howiescustomhorrordesigns@yahoo.com</a>
+        <br>
+        👍 Facebook:
+        <a href="https://www.facebook.com/killerhorrorstudioscustomcreations" target="_blank" rel="noopener noreferrer">killerhorrorstudioscustomcreations</a>
+      </p>
+    </div>
+  </main>
+
+  <audio id="demonLaugh" src="assets/demon-laugh.mp3"></audio>
+
+  <div id="lightbox">
+    <span class="close" onclick="closeLightbox()">×</span>
+    <span class="prev" onclick="changeImage(-1)">❮</span>
+    <img id="lightbox-img" alt="Expanded gallery image" />
+    <span class="next" onclick="changeImage(1)">❯</span>
+  </div>
+
+  <script>
+    const logo = document.getElementById('logo');
+    const laugh = document.getElementById('demonLaugh');
+    const track = document.getElementById('scrollTrack');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-img');
+
+    let images = Array.from(document.querySelectorAll('.scroll-track img'));
+    let currentIndex = 0;
+
+    // Duplicate image set once so carousel loops seamlessly.
+    track.innerHTML += track.innerHTML;
+    images = Array.from(document.querySelectorAll('.scroll-track img'));
+
+    logo.addEventListener('click', async () => {
+      try {
+        laugh.currentTime = 0;
+        await laugh.play();
+      } catch (_) {
+        // Browser autoplay policies can block without gesture context.
+      }
+    });
+
+    function openLightbox(imgEl) {
+      imgEl.classList.remove('shake');
+      void imgEl.offsetWidth;
+      imgEl.classList.add('shake');
+
+      images = Array.from(document.querySelectorAll('.scroll-track img'));
+      currentIndex = images.findIndex((img) => img.src === imgEl.src);
+      lightboxImage.src = imgEl.src;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      lightbox.style.display = 'none';
+    }
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      if (currentIndex < 0) currentIndex = images.length - 1;
+      if (currentIndex >= images.length) currentIndex = 0;
+      lightboxImage.src = images[currentIndex].src;
+    }
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+  </script>
+</body>
+</html>
