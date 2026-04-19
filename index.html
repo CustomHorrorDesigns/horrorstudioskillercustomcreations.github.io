@@ -15,7 +15,7 @@
 <div class="logo-wrapper"> 
 <!-- Logo --> 
 <header class="header"> 
-<img src="logo.png" class="logo"> 
+<img src="images/logo.png" id="logo" class="logo"> 
 
 <!-- Drips --> 
 <div class="blood-drips"> 
@@ -138,8 +138,8 @@ h1 { font-family: 'Metal Mania', cursive; color: #e74c3c; text-shadow: 2px 2px 8
 .contact { text-align: center; margin-bottom: 50px; font-size: 1.1em; } 
 .contact a { color: #e74c3c; text-decoration: none; } 
 .contact a:hover { text-decoration: underline; } 
-.logo { display: block; height: 120 px; width: auto; margin: 0 auto; curser: pointer; position: relative; z-index: 5; } 
-#logo { display: block !important; height: 160 px !important; width: auto !important; margin: 0 auto !important; curser: pointer !important; position: relative !important; z-index: 5 !important; } 
+.logo { display: block; height: 120px; width: auto; margin: 0 auto; cursor: pointer; position: relative; z-index: 5; } 
+#logo { display: block !important; height: 160px !important; width: auto !important; margin: 0 auto !important; cursor: pointer !important; position: relative !important; z-index: 5 !important; } 
 </style> 
 </head> 
 
@@ -233,13 +233,5 @@ document.getElementById("lightbox-img").src = images[currentIndex].src;
 } 
 </script> 
 
-<script> 
-const logo=document.getElementById('logo'); 
-const laugh=document.getElementById('demonlaugh'); 
-logo.addEventListener('click',()=>{ 
-laugh.currentTime=0; 
-laugh.play(); 
-}); 
-</script>
 
 
